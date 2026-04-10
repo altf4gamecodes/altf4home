@@ -1,0 +1,702 @@
+/* ==========================================
+   ALT F4 : MASTER TERMINAL STYLESHEET
+========================================== */
+
+:root {
+  --terminal-green: #00ff00;
+  --terminal-glow: 0 0 10px #00ff00;
+}
+
+/* --- 1. UNIVERSAL HEADERS & TITLES --- */
+h1, h2, h3, h4, h5, h6, [class*="heading"], [class*="title"] {
+    font-family: 'Courier New', Courier, monospace !important;
+    text-transform: none !important; 
+    letter-spacing: 2px !important;
+}
+
+/* --- 2. DESCRIPTIONS & TEXT BLOCKS --- */
+[class*="description"], [class*="rte"] {
+    font-family: 'Courier New', Courier, monospace !important;
+    border-left: 2px solid var(--terminal-green) !important;
+    padding: 15px 20px !important;
+    margin-top: 15px !important;
+    color: var(--terminal-green) !important;
+    background: rgba(0, 255, 0, 0.03) !important;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5) !important;
+}
+
+/* --- 3. FOOTER LINKS & HEADERS --- */
+[class*="footer-heading"] {
+    font-size: 1.1rem !important; 
+    letter-spacing: 1px !important;
+}
+[class*="footer"] a {
+    font-size: 0.85rem !important; 
+    color: var(--terminal-green) !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    font-family: monospace !important;
+    opacity: 0.8 !important;
+}
+[class*="footer"] a:hover {
+    text-shadow: var(--terminal-glow), 0 0 20px var(--terminal-green) !important;
+    color: #fff !important;
+    opacity: 1 !important;
+    padding-left: 8px !important;
+}
+
+/* --- 4. ANNOUNCEMENT BAR (Glitch Effect) --- */
+[class*="announcement-bar"] {
+    justify-content: flex-start !important;
+    padding-left: 20px !important;
+}
+[class*="announcement-bar-text"] {
+    font-family: 'Courier New', Courier, monospace !important;
+    color: #ccffcc !important; 
+    font-weight: 300 !important; 
+    font-size: 0.9em !important; 
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+    text-align: left !important;
+    width: 100% !important;
+    animation: terminalFlicker 4s infinite alternate !important;
+}
+@keyframes terminalFlicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+        text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+    }
+    20%, 24%, 55% {
+        opacity: 0.5; 
+        text-shadow: none;
+    }
+}
+
+/* --- 5. COLLECTION CARDS (Dynamic Grid Fix) --- */
+[class*="collection-card-title"] {
+    font-size: clamp(0.55rem, 1vw, 1rem) !important; 
+    letter-spacing: 0px !important; 
+    word-break: break-word !important; 
+    text-align: center !important; 
+}
+[class*="collection-card"] {
+    min-width: 0 !important; 
+    width: 100% !important;
+}
+
+/* --- 6. HEADER & SEARCH BAR --- */
+input[id*="search-input-main-searchbar"] {
+    background-color: #000000 !important; 
+    border: 1px solid #39ff14 !important; 
+    color: #39ff14 !important; 
+    font-family: 'Courier New', Courier, monospace !important; 
+    border-radius: 0px !important; 
+    box-shadow: 0 0 8px rgba(57, 255, 20, 0.4) !important;
+}
+input[id*="search-input-main-searchbar"]::placeholder {
+    color: rgba(57, 255, 20, 0.5) !important;
+}
+
+/* --- 7. NAVIGATION MENU DROPDOWNS --- */
+[class*="nav-dropdown"] {
+    background: repeating-linear-gradient(#39ff1433 0 1px, #0000 1px 3px), #000 !important; 
+    border: 1px solid #39ff14 !important;
+}
+[class*="dropdown-inner"] {
+    background: 0 0 !important; 
+    border: 0 !important;
+}
+[class*="navigation-bar"] a {
+    font-family: 'Courier New', Courier, monospace !important;
+}
+a[class*="nav-link"], h5 a {
+    color: #fb0080 !important; 
+    font-size: 1rem !important;
+}
+[class*="navigation-bar"] li a {
+    color: #39ff14 !important;
+}
+[class*="navigation-bar"] li a:hover {
+    background: #39ff14 !important; 
+    color: #000 !important;
+}
+
+/* --- 8. HERO BACKGROUND VIDEO --- */
+[class*="hero_background_video"] h2 {
+    color: #fff !important; 
+    text-shadow: 0 0 12px #00fc29 !important; 
+    font-size: 3.8rem !important; 
+    text-transform: uppercase !important;
+}
+[class*="hero_background_video"] p {
+    color: #fff !important; 
+    text-shadow: 0 0 12px #00fc29 !important; 
+    font-family: 'Courier New', Courier, monospace !important; 
+    font-weight: 500 !important;
+}
+[class*="hero_background_video"] subheading {
+    color: #fb0080 !important; 
+    text-shadow: 0 0 10px #fb0080;
+}
+
+/* --- 9. SLIDER & GRID LAYOUT TWEAKS --- */
+.blaze-track {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    transform: none !important;
+    gap: 10px !important;
+    justify-content: center;
+}
+.blaze-track > div {
+    width: calc(50% - 10px) !important;
+    margin-bottom: 15px !important;
+}
+button[class*="blaze-"] {
+    display: none !important;
+}
+@media(min-width:768px) {
+    .blaze-track > div {
+        width: calc(16.66% - 15px) !important;
+    }
+    .blaze-track > div:nth-child(6n+1):nth-last-child(-n+5), 
+    .blaze-track > div:nth-child(6n+1):nth-last-child(-n+5) ~ div {
+        display: none !important;
+    }
+}
+[class*="collection_list"] .grid__item, 
+[class*="collection_list"] [class*="card"] {
+    max-width: 320px !important; 
+    margin: 0 auto !important;
+}
+[class*="collection_list"] .grid {
+    justify-content: center !important; 
+    display: flex !important; 
+    flex-wrap: wrap !important;
+}
+[class*="collection_list"] .card__media img {
+    object-fit: contain !important; 
+    max-height: 400px !important;
+}
+
+/* --- 10. SYSTEM SUBHEADINGS --- */
+[class*="subheading"] {
+    font-size: 1.1rem !important; 
+    font-family: 'Courier New', Courier, monospace !important;
+    color: #fb0080 !important; 
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    text-shadow: 0 0 8px rgba(251, 0, 128, 0.6) !important; 
+}
+
+/* --- 11. HIDE EMPTY MEGA MENUS --- */
+[class*="main-nav-item"]:has(> [class*="main-nav-link"][href*="limited-quantity"]) [class*="main-nav-dropdown"],
+[class*="main-nav-item"]:has(> [class*="main-nav-link"][href*="the-exclusive-vault"]) [class*="main-nav-dropdown"],
+[class*="main-nav-item"]:has(> [class*="main-nav-link"][href*="top-ups-credit"]) [class*="main-nav-dropdown"] {
+    display: none !important;
+}
+
+/* --- 12. TERMINAL ASSET CARDS (Precision Overhaul) --- */
+[class~="#product-card"], [class~="#collection-card"] {
+    background-color: #000000 !important;
+    border: 1px solid rgba(0, 255, 0, 0.3) !important; 
+    border-radius: 0px !important; 
+    padding: 10px !important;
+    transition: all 0.2s ease !important;
+}
+[class~="#product-card"]:hover, [class~="#collection-card"]:hover {
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.15) !important;
+    border-color: rgba(0, 255, 0, 0.8) !important; 
+    transform: none !important; 
+}
+[class~="#product-card-media"], [class~="#collection-card-image"] {
+    border-bottom: 1px dashed rgba(0, 255, 0, 0.3) !important; 
+    padding-bottom: 10px !important;
+    margin-bottom: 10px !important;
+    border-radius: 0px !important;
+}
+[class~="#product-card-title"], [class~="#collection-card-title"] {
+    font-family: system-ui, -apple-system, sans-serif !important; 
+    color: #ccffcc !important; 
+    font-size: 0.95rem !important; 
+    font-weight: 500 !important;
+    text-transform: none !important; 
+    letter-spacing: normal !important; 
+    line-height: 1.4 !important; 
+}
+[class~="#price-item"] {
+    font-family: 'Courier New', Courier, monospace !important;
+    color: var(--terminal-green) !important;
+    font-weight: bold !important;
+    font-size: 1rem !important; 
+}
+[class~="#price-item"][class~="@compare"] {
+    color: #ff4da6 !important; 
+    opacity: 1 !important; 
+    text-decoration-thickness: 2px !important; 
+    font-size: 0.85rem !important; 
+}
+[class~="#badge"] {
+    background: #000000 !important;
+    color: #fb0080 !important; 
+    border: 1px solid #fb0080 !important;
+    font-family: 'Courier New', Courier, monospace !important;
+    border-radius: 0px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    font-size: 0.7rem !important;
+}
+[class~="#product-card-quick-action"] button {
+    background-color: var(--terminal-green) !important;
+    color: #000000 !important; 
+    border: 1px solid var(--terminal-green) !important;
+    font-family: 'Courier New', Courier, monospace !important;
+    font-weight: 500 !important; 
+    font-size: 0.75rem !important; 
+    padding: 6px 10px !important; 
+    min-height: 0 !important; 
+    border-radius: 0px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important; 
+    transition: all 0.15s ease !important; 
+}
+[class~="#product-card-quick-action"] button:hover {
+    background-color: #000000 !important;
+    color: var(--terminal-green) !important; 
+    box-shadow: var(--terminal-glow) !important;
+}
+
+/* --- 13. GRID SPACING & BREATHING ROOM --- */
+[class~="#grid"] {
+    column-gap: 2rem !important; 
+    row-gap: 3.5rem !important; 
+}
+.blaze-track {
+    gap: 2rem !important; 
+}
+@media(min-width:768px) {
+    .blaze-track > div {
+        width: calc(100% - 2rem) !important;
+        margin-bottom: 3.5rem !important;
+    }
+}
+@media(min-width: 992px) {
+    [class~="#grid"][style*="--columns: 6"] {
+        display: grid !important;
+        grid-template-columns: repeat(6, 1fr) !important;
+    }
+}
+
+/* --- 14. FORCE 5-COLUMN OVERRIDE (MAXIMUM) --- */
+@media(min-width: 992px) {
+    .blaze-track {
+        display: grid !important;
+        grid-template-columns: repeat(5, 1fr) !important; 
+        gap: 2rem !important; 
+        transform: none !important; 
+    }
+    .blaze-track > * {
+        width: 100% !important; 
+        max-width: none !important;
+        min-width: 0 !important;
+        flex: none !important;
+        margin: 0 !important; 
+    }
+    [class~="#grid"][style*="--columns: 5"] {
+        display: grid !important;
+        grid-template-columns: repeat(5, 1fr) !important;
+        gap: 2rem !important;
+    }
+}
+
+/* --- 15. GLOBAL TERMINAL DIVIDERS & ALIGNMENT --- */
+
+/* 1. MAIN PAGE (Left-Aligned & 100% Line) */
+[class~="#section-body-header"] {
+    text-align: left !important;
+    margin-bottom: 3rem !important;
+    padding-bottom: 1.5rem !important;
+    position: relative !important;
+    border-bottom: none !important;
+    width: 100% !important;
+}
+[class~="#section-body-header"]::after {
+    content: "" !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    width: 100% !important;
+    height: 1px !important;
+    background-color: #39ff14 !important;
+    opacity: 0.5 !important;
+}
+[class~="#section-body-header"] [class~="#hero"] {
+    align-items: flex-start !important;
+    text-align: left !important;
+    justify-content: flex-start !important;
+    margin: 0 auto 0 0 !important;
+}
+
+/* 2. STANDARD PAGES (About Us, Privacy Policy - Centered by Default) */
+[class~="#page-header"] {
+    text-align: center !important;
+    margin-bottom: 3rem !important;
+    padding-bottom: 1.5rem !important;
+    position: relative !important;
+    border-bottom: none !important;
+}
+[class~="#page-header"]::after {
+    content: "" !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 60% !important;
+    height: 1px !important;
+    background-color: #39ff14 !important;
+    opacity: 0.5 !important;
+}
+[class~="#page-header"] [class~="#hero"] {
+    align-items: center !important;
+    text-align: center !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+}
+
+/* 3. COLLECTION PAGES (Align exactly with products, fix bright edges) */
+
+body:has(collection-provider) [class~="#page-header"] {
+    --page-header-text-content-width: 100% !important; 
+    text-align: left !important;
+}
+
+/* Expands the narrow header container to perfectly match the wide product grid */
+body:has(collection-provider) [class~="#page-header"] [class~="#container"] {
+    max-width: none !important; 
+    width: 100% !important;
+}
+
+/* Kills the bleeding line on the outer wrapper */
+body:has(collection-provider) [class~="#page-header"]::after {
+    display: none !important;
+}
+
+/* Snaps the text to the far left to align with the first product */
+body:has(collection-provider) [class~="#page-header"] [class~="#hero"] {
+    align-items: flex-start !important;
+    text-align: left !important;
+    justify-content: flex-start !important;
+    margin: 0 auto 0 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    position: relative !important;
+    padding-bottom: 1.5rem !important; 
+}
+
+/* Draws the line safely inside the product bounds */
+body:has(collection-provider) [class~="#page-header"] [class~="#hero"]::after {
+    content: "" !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    width: 100% !important;
+    height: 1px !important;
+    background-color: #39ff14 !important;
+    opacity: 0.5 !important;
+}
+
+body:has(collection-provider) [class~="#page-header"] [class~="#hero-heading"] {
+    text-align: left !important;
+    margin-left: 0 !important;
+    width: 100% !important;
+}
+
+/* ================================================= */
+/* // SECURE_COMMS (CONTACT PAGE) OVERRIDES //       */
+/* ================================================= */
+
+/* 1. Left-Align Breadcrumbs & Headers */
+[class~="#page-header"] [class~="#hero"],
+[class~="#section-body-header"] [class~="#hero"] {
+    align-items: flex-start !important;
+    text-align: left !important;
+}
+
+/* 2. Text Formatting (Reduce Eye Strain) */
+[class~="#rte"] p {
+    color: #8fb38f !important;
+    line-height: 1.8 !important;
+    font-size: 16px !important;
+    letter-spacing: 0.5px;
+}
+
+/* 3. Constrain Form Width & Left-Align */
+form.contact-form {
+    max-width: 800px !important;
+    margin: 0 auto 0 0 !important;
+}
+
+/* 4. Terminal-Style Input Boxes */
+form.contact-form [class~="#form-field-label"] {
+    color: #8fb38f !important; 
+    letter-spacing: 0.5px !important;
+}
+form.contact-form [class~="#form-field-input"] {
+    background-color: #050505 !important;
+    border: 1px solid #1a5c1a !important;
+    color: #39ff14 !important;
+    font-family: 'Courier New', Courier, monospace !important;
+    border-radius: 0px !important;
+    padding: 12px !important;
+}
+form.contact-form [class~="#form-field-input"]:focus {
+    border-color: #39ff14 !important;
+    box-shadow: 0 0 8px rgba(57, 255, 20, 0.2) !important;
+    outline: none !important;
+}
+
+/* 5. Left-Align the Accent Line (Contact Page Only) */
+[class~="#section-body"]:has(form.contact-form) [class~="#section-body-header"]::after {
+    display: none !important;
+}
+[class~="#section-body"]:has(form.contact-form) [class~="#hero"] {
+    border-bottom: 1px solid #1a5c1a !important; 
+    padding-bottom: 15px !important;
+    width: 100% !important;
+    max-width: 800px !important; 
+}
+/* ================================================= */
+/* // SECURE_COMMS HEADER OVERRIDE //                */
+/* ================================================= */
+
+/* 1. Nuke the Breadcrumbs */
+[class~="#page-header"] [class~="#breadcrumbs"] {
+    display: none !important;
+}
+
+/* 2. Match the Header Grid to the Body Grid (80%) */
+[class~="#page-header"] {
+    --page-header-text-content-width: 80% !important; /* Syncs the invisible bounds */
+    padding-bottom: 0 !important; 
+}
+
+/* 3. Snap Title to the Left & Draw the Line */
+[class~="#page-header"] [class~="#hero"] {
+    width: 100% !important;
+    max-width: 800px !important; /* Matches your contact form width perfectly */
+    margin: 0 auto 0 0 !important; /* Forces absolute left alignment */
+    align-items: flex-start !important; 
+    justify-content: flex-start !important;
+    border-bottom: 1px solid #1a5c1a !important; /* Terminal accent line */
+    padding-bottom: 15px !important; 
+    margin-bottom: 0 !important;
+}
+
+[class~="#page-header"] [class~="#hero-heading"] {
+    text-align: left !important;
+    margin-left: 0 !important;
+}
+
+/* 4. Control the Space Below the Line */
+[class~="#page-header-text"] {
+    padding-bottom: 0 !important; 
+}
+
+/* Pushes the body text down to create a clean gap below the horizontal line */
+.shopify-section:has([class~="#page-header"]) + .shopify-section [class~="#section-body"] {
+    padding-top: 10px !important; /* <--- Change this number to increase/decrease the gap */
+    margin-top: 0px !important; 
+}
+
+/* ================================================= */
+/* // FORCE SINGLE-LINE DIRECTORY HEADERS //         */
+/* ================================================= */
+
+/* Strips all invisible width restrictions and locks the text string */
+[class~="#page-header"] h1,
+[class~="#page-header"] [class*="heading"],
+[class~="#page-header"] [class~="#hero-heading"] {
+    white-space: nowrap !important; 
+    word-break: keep-all !important; 
+    width: 100% !important; 
+    max-width: none !important; 
+    font-size: clamp(1.2rem, 3vw, 2.5rem) !important; 
+}
+
+/* ================================================= */
+/* // TERMINAL BOLD HIGHLIGHTS (RTE) //              */
+/* ================================================= */
+
+/* Brute-force overrides Shopify's native typography colors */
+.shopify-section strong, 
+.shopify-section b,
+[class*="rte"] strong, 
+[class*="rte"] b {
+    color: #ccffcc !important; 
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5) !important; 
+    font-weight: bold !important;
+    letter-spacing: 1px !important;
+}
+
+/* ================================================= */
+/* // LIVE TERMINAL ANIMATIONS //                    */
+/* ================================================= */
+
+/* 1. Interactive Hover State (Makes the terminal react to the user) */
+[class*="rte"] strong:hover, 
+[class*="rte"] b:hover {
+    color: #ffffff !important;
+    text-shadow: 0 0 15px #39ff14, 0 0 30px #39ff14 !important;
+    cursor: crosshair !important;
+}
+
+/* 2. Ambient CRT Pulse (Gives the text a subtle, living glow) */
+[class*="rte"] {
+    animation: ambientCRT 4s infinite alternate ease-in-out !important;
+}
+@keyframes ambientCRT {
+    0% { text-shadow: 0 0 3px rgba(0, 255, 0, 0.3); }
+    100% { text-shadow: 0 0 8px rgba(0, 255, 0, 0.6); }
+}
+
+/* 3. Blinking Terminal Cursor (Appends to the very last paragraph) */
+[class*="rte"] p:last-child::after {
+    content: " _";
+    color: #39ff14;
+    font-weight: bold;
+    text-shadow: 0 0 10px #39ff14;
+    animation: terminalCursor 1s step-end infinite;
+}
+@keyframes terminalCursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* --- 16. COLLECTION HEADER NUKE (NO IMAGES, NO DESC) --- */
+
+/* 1. Vaporize all descriptions and subtext */
+body:has(collection-provider) [class~="#page-header"] [class~="#hero-text"],
+body:has(collection-provider) [class~="#page-header"] [class*="description"],
+body:has(collection-provider) [class~="#page-header"] p {
+    display: none !important;
+}
+
+/* 2. Vaporize all hero images, backgrounds, and media wrappers */
+body:has(collection-provider) [class~="#page-header"] [class~="#hero-media"],
+body:has(collection-provider) [class~="#page-header"] [class~="#hero-bg"],
+body:has(collection-provider) [class~="#page-header"] [class~="#media"],
+body:has(collection-provider) [class~="#page-header"] picture,
+body:has(collection-provider) [class~="#page-header"] img {
+    display: none !important;
+    background-image: none !important;
+}
+
+/* 3. Collapse the empty space and reset the height */
+body:has(collection-provider) [class~="#page-header"] {
+    min-height: 0 !important;
+    background: transparent !important;
+}
+
+/* 4. Lock the text and draw the terminal line directly under it */
+body:has(collection-provider) [class~="#page-header"] [class~="#hero"] {
+    min-height: 0 !important;
+    height: auto !important;
+    position: relative !important;
+    padding-top: 0 !important;
+    padding-bottom: 1.5rem !important; /* Space between the text and the line */
+    background: transparent !important;
+}
+
+body:has(collection-provider) [class~="#page-header"] [class~="#hero"]::after {
+    content: "" !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    width: 100% !important;
+    height: 1px !important;
+    background-color: #39ff14 !important;
+    opacity: 0.5 !important;
+}
+
+/* --- GLOBAL TERMINAL TICKER: FRAMED MASTER --- */
+
+/* 1. Master Container (Fixed to top with dual borders) */
+.global-ticker-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw !important;
+    background: #000;
+    border-top: 3px solid #39ff14;    /* Top Frame */
+    border-bottom: 1px solid #39ff14; /* Bottom Frame */
+    padding: 0px 0px;
+    z-index: 9999;
+    margin: 0 !important;
+    overflow: hidden; /* Keeps the text inside the bar */
+}
+
+/* 2. The Moving Ticker Belt (This fixes the "Going down the page" issue) */
+.global-ticker {
+    display: flex !important;      /* Forces items into a row */
+    flex-direction: row !important;
+    white-space: nowrap !important; /* Prevents text from wrapping to new lines */
+    animation: globalTicker 35s linear infinite;
+}
+
+.ticker-node {
+    display: inline-flex !important;
+    align-items: center;
+    padding: 0px 40px;
+    font-family: 'Courier New', Courier, monospace !important;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #ccffcc; 
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.4);
+}
+
+/* 3. Status Tag & Accents */
+.status-tag {
+    background: #39ff14;
+    color: #000;
+    padding: 2px 8px;
+    font-weight: bold;
+    margin-right: 12px;
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+}
+
+.pink   { color: #fb0080; text-shadow: 0 0 8px #fb0080; font-weight: bold; }
+.green  { color: #39ff14; text-shadow: 0 0 8px #39ff14; font-weight: bold; }
+.blue   { color: #00fff9; text-shadow: 0 0 8px #00fff9; font-weight: bold; }
+.amber  { color: #ffaa00; text-shadow: 0 0 8px #ffaa00; font-weight: bold; }
+
+/* 4. Movement Animation */
+@keyframes globalTicker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* 5. Nuke Theme Spacing & Side Lines */
+.shopify-section-group-header-group .rte, 
+.shopify-section-group-header-group div {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    border-left: none !important; 
+}
+
+/* 6. Header Alignment */
+.header-section-wrapper {
+    padding-top: 0px !important; 
+    margin-top: 0 !important;
+}
+
+.header, .header-inner, .header-logo {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+#MainContent {
+    padding-top: -10 !important;
+}
